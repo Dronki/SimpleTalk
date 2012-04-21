@@ -19,7 +19,6 @@ Todo
 - Chat bot?
 - A better login system
 - Language implementations
-=======
 
 License
 -------
