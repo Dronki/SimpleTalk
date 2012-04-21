@@ -7,7 +7,7 @@ Features
 - Simple for users to join and talk.
 - Cross-plattform
 - Easy on server resources
-- Stabile
+- Stable
 - Easy accessible logs
 
 Todo
@@ -19,3 +19,10 @@ Todo
 - Chat bot?
 - A better login system
 - Language implementations
+=======
+
+License
+-------
+SimpleTalk by Rickard Ahlstedt is licensed under a Creative Commons Attribution-ShareAlike 2.5 Sweden License.
+Based on a work at github.com.
+Permissions beyond the scope of this license may be available at https://github.com/Rickythemaniac/SimpleTalk.
