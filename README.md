@@ -12,13 +12,13 @@ Features
 
 Todo
 ----
-- Implement mobile device support (fullscreen and more webkit)
+- Implement mobile device support (fullscreen and more webkit) -Working on it, see /m (mostly css work from here on)
 - Add option to have the post.php save to a mysqli-db
 - Get smileys to work
 - More that I probably forgot
 - Chat bot?
 - A better login system
-- Language implementations
+- Language implementations -Next thing!
 
 License
 -------
