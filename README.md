@@ -7,7 +7,7 @@ Features
 - Simple for users to join and talk.
 - Cross-plattform
 - Easy on server resources
-- Stabile
+- Stable
 - Easy accessible logs
 
 Todo
