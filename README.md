@@ -18,3 +18,9 @@ Todo
 - More that I probably forgot
 - Chat bot?
 - A better login system
+
+License
+-------
+SimpleTalk by Rickard Ahlstedt is licensed under a Creative Commons Attribution-ShareAlike 2.5 Sweden License.
+Based on a work at github.com.
+Permissions beyond the scope of this license may be available at https://github.com/Rickythemaniac/SimpleTalk.
