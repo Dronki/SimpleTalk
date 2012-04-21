@@ -18,6 +18,7 @@ Todo
 - More that I probably forgot
 - Chat bot?
 - A better login system
+- Language implementations
 
 License
 -------
