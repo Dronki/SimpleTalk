@@ -4,7 +4,7 @@ A simple chat application that can be easily integrated into bigger systems.
 This application uses:
 - Jquery (latest release available)
 - javascript-linkify from https:github.com/cowboy
-- 
+
 Features
 --------
 - Simple for users to join and talk.
