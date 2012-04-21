@@ -66,15 +66,18 @@ else{
 	
 	<form name="message" action="">
 		<input name="usermsg" type="text" id="usermsg" size="63" />
+		<br />
+		<div id="license"><i>License info</i></div><br />
+		<div id="licenseinfo"><a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/se/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/2.5/se/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dct:title" rel="dct:type">SimpleTalk</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/Rickythemaniac/SimpleTalk" property="cc:attributionName" rel="cc:attributionURL">Rickard Ahlstedt</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/se/">Creative Commons Attribution-ShareAlike 2.5 Sweden License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/Rickythemaniac/SimpleTalk" rel="dct:source">github.com</a>.<br />Permissions beyond the scope of this license may be available at <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/Rickythemaniac/SimpleTalk" rel="cc:morePermissions">https://github.com/Rickythemaniac/SimpleTalk</a>.</div>
 		<!--<input name="submitmsg" type="submit"  id="submitmsg" value="Send" />-->
 	</form>
 </div>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.js"></script>
 <script type="text/javascript" src="https://raw.github.com/cowboy/javascript-linkify/master/ba-linkify.js"></script>
 <script type="text/javascript">
 // jQuery Document
 $(document).ready(function(){
-    
+    $("#licenseinfo").slideToggle("slow");
     $("#chatbox").animate({scrollTop: $("#chatbox").height()*($("#chatbox").height()/2)}, 'slow'); //Continous scroll when ever a user joins
     $("#usermsg").focus();
         $("#usermsg").keypress(function(e){
@@ -87,6 +90,10 @@ $(document).ready(function(){
            }
         });
     
+	$("#license").click(function(){
+		$("#licenseinfo").slideToggle("slow");
+	});
+	
 	//If user submits the form using the buttin
 	$("#submitmsg").click(function(){	
 		var clientmsg = $("#usermsg").val();
