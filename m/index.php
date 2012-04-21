@@ -38,6 +38,8 @@ if(isset($_POST['enter'])){
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, height=device-height, user-scalable=no initial-scale=1,maximum-scale=1"/>
 <title>SimpleTalk 1.0 - Swedish</title>
 <link type="text/css" rel="stylesheet" href="style.css" />
 </head>
@@ -49,23 +51,23 @@ if(!isset($_SESSION['name'])){
 else{
 ?>
 <div id="wrapper">
-	<div id="menu">
+	<div id="menu">Menu</div>
+            <div id="menucontent">
 		<p class="welcome">Välkommen, <b><?php echo $_SESSION['name']; ?></b></p> <!--Welcome [user]-->
 		<p class="logout"><a id="exit" href="#">Logga ut från chatten</a></p> <!--Log out from chat-->
 		<div style="clear:both"></div>
-	</div>	
+            </div>
 	<div id="chatbox"><?php
-	if(file_exists("log/log.html") && filesize("log/log.html") > 0){
-		$handle = fopen("log/log.html", "r");
-		$contents = fread($handle, filesize("log/log.html"));
+	if(file_exists("../log/log.html") && filesize("../log/log.html") > 0){
+		$handle = fopen("../log/log.html", "r");
+		$contents = fread($handle, filesize("../log/log.html"));
 		fclose($handle);
 		
 		echo $contents;
 	}
 	?></div>
-	
 	<form name="message" action="">
-		<input name="usermsg" type="text" id="usermsg" size="63" />
+		<input name="usermsg" type="text" id="usermsg"/>
 		<br />
 		<div id="license"><i>License info</i></div><br />
 		<div id="licenseinfo"><a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/se/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/2.5/se/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dct:title" rel="dct:type">SimpleTalk</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/Rickythemaniac/SimpleTalk" property="cc:attributionName" rel="cc:attributionURL">Rickard Ahlstedt</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/se/">Creative Commons Attribution-ShareAlike 2.5 Sweden License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/Rickythemaniac/SimpleTalk" rel="dct:source">github.com</a>.<br />Permissions beyond the scope of this license may be available at <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/Rickythemaniac/SimpleTalk" rel="cc:morePermissions">https://github.com/Rickythemaniac/SimpleTalk</a>.</div>
@@ -78,17 +80,22 @@ else{
 // jQuery Document
 $(document).ready(function(){
     $("#licenseinfo").slideToggle("slow");
+    $("#menucontent").slideToggle("slow");
     $("#chatbox").animate({scrollTop: $("#chatbox").height()*($("#chatbox").height()/2)}, 'slow'); //Continous scroll when ever a user joins
     $("#usermsg").focus();
         $("#usermsg").keypress(function(e){
            var clientmsg = $("#usermsg").val(); 
            if(e.keyCode == '13'){
                var msg = linkify(clientmsg)
-               $.post("post.php", {text: msg});
+               $.post("../post.php", {text: msg});
                $("#usermsg").attr("value", "");
                return false
            }
         });
+    
+        $("#menu").click(function(){
+		$("#menucontent").slideToggle("slow");
+	});
     
 	$("#license").click(function(){
 		$("#licenseinfo").slideToggle("slow");
@@ -106,7 +113,7 @@ $(document).ready(function(){
 	function loadLog(){		
 		var oldscrollHeight = $("#chatbox").attr("scrollHeight") - 20;
 		$.ajax({
-			url: "log/log.html",
+			url: "../log/log.html",
 			cache: false,
 			success: function(html){		
 				$("#chatbox").html(html); //Insert chat log into the #chatbox div				

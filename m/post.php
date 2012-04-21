@@ -3,7 +3,7 @@ session_start();
 if(isset($_SESSION['name'])){
 	$text = $_POST['text'];
 	
-	$fp = fopen("log/log.html", 'a');
+	$fp = fopen("../log/log.html", 'a');
         /*
          * Until I can get this working smoothly, the smiley function will not be present :(
          * To enable it anyways, uncomment the section below and change 
