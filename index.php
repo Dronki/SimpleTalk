@@ -41,7 +41,7 @@ if(isset($_POST['enter'])){
 <title>SimpleTalk 1.0 - Swedish</title>
 <link type="text/css" rel="stylesheet" href="style.css" />
 </head>
-
+<body>
 <?php
 if(!isset($_SESSION['name'])){
 	loginForm();
