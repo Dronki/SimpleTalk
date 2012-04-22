@@ -23,7 +23,7 @@ Todo
 - Chat bot?
 - A better login system
 - Language implementations -Next thing!
-
+- Chatbot (See Memento)
 License
 -------
 SimpleTalk by Rickard Ahlstedt is licensed under a Creative Commons Attribution-ShareAlike 2.5 Sweden License.
@@ -33,3 +33,14 @@ Permissions beyond the scope of this license may be available at http://rickythe
 Unrelated stuff
 ---------------
 Images: http://imgur.com/a/we7RM
+
+Memento
+=======
+A chatbot for SimpleTalk
+
+Features
+--------
+- Easy to use
+- Everyone can access it from the chat
+- Google and Wiki search and linking directly from chat
+- [PLANNED] Plugin support
