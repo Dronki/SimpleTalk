@@ -4,7 +4,7 @@ session_start();
 if(isset($_GET['logout'])){	
 	
 	//Simple exit message
-	$fp = fopen("log.html", 'a');
+	$fp = fopen("log/log.html", 'a');
 	fwrite($fp, "<div class='msgln'><i>Användare ". $_SESSION['name'] ." har lämnat konversationen.</i><br></div>"); //User [username] has left the conversation
 	fclose($fp);
 	
@@ -78,52 +78,52 @@ else{
 // jQuery Document
 $(document).ready(function(){
     $("#licenseinfo").slideToggle("slow");
-    $("#chatbox").animate({scrollTop: $("#chatbox").height()*($("#chatbox").height()/2)}, 'slow'); //Continous scroll when ever a user joins
+    $("#chatbox").animate({scrollTop: $("#chatbox").height()+$("#chatbox").height()}, 'slow'); //Continous scroll when ever a user joins
     $("#usermsg").focus();
-        $("#usermsg").keypress(function(e){
-           var clientmsg = $("#usermsg").val(); 
-           if(e.keyCode == '13'){
-               var msg = linkify(clientmsg)
-               $.post("post.php", {text: msg});
-               $("#usermsg").attr("value", "");
-               return false
-           }
-        });
+
+    $("#usermsg").keypress(function(e){
+        var clientmsg = $("#usermsg").val(); 
+        if(e.keyCode == '13'){
+            var msg = linkify(clientmsg)
+            $.post("post.php", {text: msg});
+            $("#usermsg").attr("value", "");
+            return false
+        }
+    });
     
-	$("#license").click(function(){
-		$("#licenseinfo").slideToggle("slow");
-	});
-	
-	//If user submits the form using the buttin
-	$("#submitmsg").click(function(){	
-		var clientmsg = $("#usermsg").val();
-		$.post("post.php", {text: clientmsg});				
-		$("#usermsg").attr("value", "");
-		return false;
-	});
-	
-	//Load the file containing the chat log
-	function loadLog(){		
-		var oldscrollHeight = $("#chatbox").attr("scrollHeight") - 20;
-		$.ajax({
-			url: "log/log.html",
-			cache: false,
-			success: function(html){		
-				$("#chatbox").html(html); //Insert chat log into the #chatbox div				
-				var newscrollHeight = $("#chatbox").attr("scrollHeight") - 20;
-				if(newscrollHeight > oldscrollHeight){
-					$("#chatbox").animate({ scrollTop: newscrollHeight }, 'normal'); //Autoscroll to bottom of div
-				}
-		  	}
-		});
-	}
-	setInterval (loadLog, 1500);	//Reload file every 2.5 seconds
-	
-	//If user wants to end session
-	$("#exit").click(function(){
-		var exit = confirm("Vill du verkligen logga ut?"); //"Do you really want to log out from the current session?"
-		if(exit==true){window.location = 'index.php?logout=true';}		
-	});
+    $("#license").click(function(){
+            $("#licenseinfo").slideToggle("slow");
+    });
+
+    //If user submits the form using the buttin
+    $("#submitmsg").click(function(){	
+            var clientmsg = $("#usermsg").val();
+            $.post("post.php", {text: clientmsg});				
+            $("#usermsg").attr("value", "");
+            return false;
+    });
+
+    //Load the file containing the chat log
+    function loadLog(){		
+            $.ajax({
+                    url: "log/log.html",
+                    cache: false,
+                    success: function(html){		
+                            $("#chatbox").html(html); //Insert chat log into the #chatbox div				
+                            $("#chatbox").animate({scrollTop: $("#chatbox").height()*$("#chatbox").height()*2}, 'slow');
+                            /*if(newscrollHeight > oldscrollHeight){
+                                    $("#chatbox").animate({ scrollTop: newscrollHeight }, 'normal'); //Autoscroll to bottom of div
+                            }*/
+                    }
+            });
+    }
+    setInterval (loadLog, 1500);	//Reload file every 1.5 seconds
+
+    //If user wants to end session
+    $("#exit").click(function(){
+            var exit = confirm("Vill du verkligen logga ut?"); //"Do you really want to log out from the current session?"
+            if(exit==true){window.location = 'index.php?logout=true';}		
+    });
 });
 </script>
 <?php

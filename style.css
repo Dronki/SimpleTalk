@@ -1,60 +1,64 @@
- 
+
 /* CSS Document */
 body {
-	font:12px arial;
-	color: #000;
-	text-align:center;
-	padding:35px; }
- 
+    font:12px arial;
+    color: #000;
+    text-align:center;
+    padding:35px; }
+
 form, p, span {
-	margin:0;
-	padding:0; }
- 
+    margin:0;
+    padding:0; }
+
 input { font:12px arial; }
 
 input:focus, select:focus textarea:focus{
+outline: none;
+}
+
+a:focus {
     outline: none;
 }
- 
+
 a {
-	color:#0000FF;
-	text-decoration:none; }
- 
-	a:hover { text-decoration:underline; }
- 
+    color:#0000FF;
+    text-decoration:none; }
+
+    a:hover { text-decoration:underline; }
+
 #wrapper, #loginform {
-	margin:0 auto;
-	padding-bottom:25px;
-	background:#EBF4FB;
-	width:504px;
-        border-radius: 20px;
-        box-shadow: 0 0 8px #000; 
-	border:1px solid #ACD8F0; }
- 
+    margin:0 auto;
+    padding-bottom:25px;
+    background:#EBF4FB;
+    width:504px;
+    border-radius: 20px;
+    box-shadow: 0 0 8px #000; 
+    border:1px solid #ACD8F0; }
+
 #loginform { padding-top:18px; }
- 
-	#loginform p { margin: 5px; }
- 
+
+    #loginform p { margin: 5px; }
+
 #chatbox {
-	text-align:left;
-	margin:0 auto;
-	margin-bottom:25px;
-	padding:10px;
-	background:#ccc;
-	height:270px;
-	width:430px;
-	border:1px solid #ACD8F0;
-	overflow:hidden; 
-        border-radius: 20px;
-        box-shadow: inset 0 0 8px #000;
+    text-align:left;
+    margin:0 auto;
+    margin-bottom:25px;
+    padding:10px;
+    background:#ccc;
+    height:270px;
+    width:430px;
+    border:1px solid #ACD8F0;
+    overflow:hidden; 
+    border-radius: 20px;
+    box-shadow: inset 0 0 8px #000;
 }
- 
+
 #usermsg {
-        box-shadow: inset 0 0 15px #000;
-        border-radius: 15px;
-        padding: 7px;
-	width:395px;
-	border:1px solid #ACD8F0; 
+    box-shadow: inset 0 0 15px #000;
+    border-radius: 15px;
+    padding: 7px;
+    width:395px;
+    border:1px solid #ACD8F0; 
 }
  
 #submit { width: 60px; }
