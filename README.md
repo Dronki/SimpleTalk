@@ -24,6 +24,7 @@ Todo
 - A better login system
 - Language implementations -Next thing!
 - Chatbot (See Memento)
+
 License
 -------
 SimpleTalk by Rickard Ahlstedt is licensed under a Creative Commons Attribution-ShareAlike 2.5 Sweden License.
