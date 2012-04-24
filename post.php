@@ -2,17 +2,17 @@
 session_start();
 if(isset($_SESSION['name'])){
 	$text = $_POST['text'];
-	
+
 	$fp = fopen("log/log.html", 'a');
-        //Thanks to Squaredwhale for the fix :D
+        //Thanks to SquaredWhale for the fix :D
         error_reporting(E_ALL);
         ini_set('display_errors','1');
         
         $patterns = array();
         $patterns[0] = "/:\)/";
         $patterns[1] = "/:\(/";
-        $patterns[2] = "/:\D/";
-        $patterns[3] = "/:\O/";
+        $patterns[2] = "/:D/";
+        $patterns[3] = "/:O/";
         $patterns[4] = "/;\)/";
         
         $replacement = array();
