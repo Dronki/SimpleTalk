@@ -14,6 +14,7 @@ if(isset($_SESSION['name'])){
         $patterns[2] = "/:D/";
         $patterns[3] = "/:O/";
         $patterns[4] = "/;\)/";
+        $patterns[5] = "/:{\)/";
         
         $replacement = array();
         $replacement[0] = "<img src='emotes/Smile.png' />";
@@ -21,6 +22,7 @@ if(isset($_SESSION['name'])){
         $replacement[2] = "<img src='emotes/Grin.png' />";
         $replacement[3] = "<img src='emotes/Surprise.png' />";
         $replacement[4] = "<img src='emotes/Wink.png' />";
+        $replacement[5] = "<img src='emotes/LikeASir.png' />"; //Yet to be uploaded - Ricky
         
         $text = preg_replace($patterns,$replacement,$text);
         
